@@ -1,0 +1,56 @@
+<style>
+	body {
+		overflow-y: auto;
+	}
+	
+	.pk-nav.pk-nav-admin ul li {
+		width: 10%;
+	}
+	
+	.pk-nav-vertical.pk-nav-admin-left ul li.pk-active {
+		background-color: #ddd;
+	}
+	.admin-head{
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 99;
+	}
+</style>
+<div id="head" class="pk-row pk-background-color-primary pk-padding-top-15 pk-text-white admin-head">
+	<div class="pk-w-sm-2 pk-text-center pk-text-md pk-text-bold">HadSky 后台管理</div>
+	<div class="pk-w-sm-9 pk-padding-left-0">
+		<div id="mnav" class="pk-nav pk-nav-admin pk-overflow-hidden" style="height: 39px">
+			<ul>
+				<li onclick="location.href='index.php?c=app&a=superadmin:index&s=home'">
+					<a href="index.php?c=app&a=superadmin:index&s=home">首页</a>
+				</li>
+				<li onclick="location.href='index.php?c=app&a=superadmin:index&s=set'">
+					<a href="index.php?c=app&a=superadmin:index&s=set">全局</a>
+				</li>
+				<li onclick="location.href='index.php?c=app&a=superadmin:index&s=forum'">
+					<a href="index.php?c=app&a=superadmin:index&s=forum">论坛</a>
+				</li>
+				<li onclick="location.href='index.php?c=app&a=superadmin:index&s=user'">
+					<a href="index.php?c=app&a=superadmin:index&s=user">用户</a>
+				</li>
+				<li onclick="location.href='index.php?c=app&a=superadmin:index&s=template'">
+					<a href="index.php?c=app&a=superadmin:index&s=template">模板</a>
+				</li>
+				<li onclick="location.href='index.php?c=app&a=superadmin:index&s=app'">
+					<a href="index.php?c=app&a=superadmin:index&s=app">应用</a>
+				</li>
+				<!--<li onclick="window.open('http://www.hadsky.com/index.php?c=app&a=zhanzhang:index&s=tongji&year={date('Y')}&month={date('m')}&domain={$_G['SYSTEM']['DOMAIN']}','_blank'))">
+					<a target="_blank" href="http://www.hadsky.com/index.php?c=app&a=zhanzhang:index&s=tongji&year={date('Y')}&month={date('m')}&domain={$_G['SYSTEM']['DOMAIN']}">云功能</a>
+				</li>-->
+				<li class="pk-text-danger" onclick="window.open('http://www.hadsky.com/index.php?c=list&sortid=31&page=1','_blank'))">
+					<a target="_blank" href="http://www.hadsky.com/index.php?c=list&sortid=31&page=1">应用市场</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="pk-w-sm-1">
+		<a target="_blank" class="pk-btn pk-btn-sm pk-btn-secondary" href="index.php">站点首页</a>
+	</div>
+</div>
+<div class="head-buwei" style="height: 54px;"></div>

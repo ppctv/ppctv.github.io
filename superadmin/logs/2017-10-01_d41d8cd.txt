@@ -1,0 +1,6 @@
+OperatingTime	UID	RequestURI
+21:27:59	1	http://118.89.165.148:81/index.php?c=app&a=superadmin:index
+21:27:59	1	http://118.89.165.148:81/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dgetnotice
+21:27:59	1	http://118.89.165.148:81/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex2%26s%3Dgetinfo%26domain%3D118.89.165.148%26yuncheckcode%3D7hJrrCIbFFOiNUO0%26rnd%3D9355%26type%3Dnew
+21:28:09	1	http://118.89.165.148:81/index.php?c=app&a=superadmin:index&s=home&t=deletepowered
+21:28:14	1	http://118.89.165.148:81/index.php?c=app&a=superadmin:index&s=home&t=deletepowered&_webos=HadSky&ptxt=1&submit=yes

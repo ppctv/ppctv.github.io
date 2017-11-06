@@ -1,0 +1,5 @@
+OperatingTime	UID	RequestURI
+21:13:26	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index
+21:13:28	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dgetnotice
+21:13:30	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=app
+21:13:33	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=app&t=superadmin

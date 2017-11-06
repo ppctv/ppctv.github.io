@@ -1,0 +1,13 @@
+OperatingTime	UID	RequestURI
+09:48:25	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index
+09:48:26	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dgetnotice
+09:48:28	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dchkupdate%26nowversion%3D040604
+09:48:34	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=update&do=update&rnd=1300
+09:48:42	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=home&t=websafe
+09:48:43	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=home
+09:48:45	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dgetnotice
+09:48:59	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dchkupdate%26nowversion%3D040605
+09:49:00	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dchkupdate%26nowversion%3D040605
+09:49:08	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=set
+10:00:59	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index
+10:01:00	1	http://localhost/hadsky3 publish/upload/index.php?c=app&a=superadmin:index&s=api&url=http%3A%2F%2Fwww.hadsky.com%2Findex.php%3Fc%3Dapp%26a%3Dzhanzhang%3Aindex3%26s%3Dgetnotice

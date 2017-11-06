@@ -1,0 +1,159 @@
+<style>
+	.admin-foot{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		height: 20px;
+		z-index: 99;
+	}
+</style>
+<div class="foot-buwei" style="height: 20px;"></div>
+<div id="foot" class="pk-row admin-foot">
+	<div class="pk-w-sm-12 pk-text-right pk-text-default pk-text-xs" style="padding: 2px 5px;background:linear-gradient(to top,#999,#eee);">
+		<a target="_blank" class="pk-text-bold pk-hover-underline" href="http://www.hadsky.com">HadSky</a> Powered by
+		<a target="_blank" class="pk-text-bold pk-hover-underline" href="http://www.puyuetian.com">puyuetian</a>
+	</div>
+</div>
+<!--移动版-->
+<div id="phoneadmindiv" class="pk-hide">
+	<div id="phonehead" class="pk-position-fixed pk-padding-10 pk-row pk-background-color-white" style="top:0;left:0;width:100%;z-index:99;">
+		<div class="pk-w-sm-6 pk-padding-0"></div>
+		<div class="pk-w-sm-6 pk-padding-0"></div>
+	</div>
+	<div id="phonebody" class="pk-row" style="min-height:100%;height:auto;overflow:auto;margin-top:52px;">
+		<div id="phonecontent" class="pk-w-sm-12"></div>
+	</div>
+	<div id="phonefoot" class="pk-padding-top-15 pk-padding-bottom-10 pk-text-center pk-text-xs pk-row">
+		<div class="pk-w-sm-12 pk-padding-0">HS移动适配，我的掌上管理平台</div>
+		<div class="pk-w-sm-12 pk-text-center pk-text-xs pk-padding-0">
+			Powered by
+			<a class="pk-hover-underline pk-text-primary" target="_blank" href="http://www.hadsky.com/?fromuid=1&url=superadmin">HadSky</a>
+		</div>
+	</div>
+</div>
+<script>
+	if($_GET('pkalert') == 'show') {
+		pkalert(decodeURIComponent($_GET('alert')));
+	}
+	$('head title').html('HadSky 4.x 后台管理 - Powered by HadSky');
+	$zh = $(window).outerHeight();
+	$hh = $('#head').outerHeight();
+	$fh = $('#foot').outerHeight();
+	$bh = $zh - $hh - $fh;
+	$('#body,#nav,#content').outerHeight($bh);
+	$navbtns = $('#mnav a');
+	for($i = 0; $i < $navbtns.length; $i++)
+		if($_GET('s', $navbtns[$i].href) == ("{$_G['GET']['S']}" || 'home')) {
+			$('#mnav li:eq(' + $i + ')').addClass('pk-active');
+			break;
+		}
+
+	$selects = $('select');
+	for($i = 0; $i < $selects.length; $i++) {
+		$('select[name="' + $($selects[$i]).attr('name') + '"] option[value="' + $($selects[$i]).data('value') + '"]').prop('selected', true);
+	}
+
+	//已选左侧导航优化
+	$_GET('t') ? $('#nav a[href*="' + $_GET('t') + '"]:eq(0)').attr('href', 'javascript:').css('color', '#999').addClass('pk-cursor-default').parent().addClass('pk-active pk-cursor-default').attr('onclick', '') : $('#nav a:eq(0)').attr('href', 'javascript:').css('color', '#999').addClass('pk-cursor-default').parent().addClass('pk-active pk-cursor-default').attr('onclick', '');
+
+	//适配移动版
+	if($(window).width() < 1000) {
+		//去掉buwei
+		$('.head-buwei,.foot-buwei').remove();
+		//清除css
+		$('body').css('overflow-y', 'auto');
+		//导航内容
+		var mnavhtml = '',
+			navhtml = '';
+		var mnavas = $('#head #mnav ul a');
+		for(var i = 0; i < mnavas.length; i++) {
+			mnavhtml += '<option value="' + mnavas[i].href + '">' + mnavas[i].innerHTML + '</option>';
+		}
+		mnavhtml = '<select class="pk-textbox pk-textbox-noshadow pk-radius-top-left-4 pk-radius-bottom-left-4" onchange="location.href=this.value">' + mnavhtml + '</select>';
+		var navas = $('#body #nav ul a');
+		for(var i = 0; i < navas.length; i++) {
+			navhtml += '<option value="' + navas[i].href + '">' + navas[i].innerHTML + '</option>';
+		}
+		navhtml = '<select class="pk-textbox pk-textbox-noshadow pk-radius-top-right-4 pk-radius-bottom-right-4 pk-border-left-none" onchange="if(this.value.substr(0,11)==\'javascript:\'){eval(this.value.substr(11))}else{location.href=this.value}">' + navhtml + '</select>';
+		//布局
+		$('#phonehead>div:eq(0)').html(mnavhtml);
+		$('#phonehead>div:eq(1)').html(navhtml);
+		$('#phonebody>div:eq(0)').html($('#body #content').html());
+		//布局完成，显示
+		$('#phonehead>div:eq(0) select option[value*="&s=' + $_GET('s') + '"]').attr('selected', 'true');
+		$('#phonehead>div:eq(1) select option[value*="&t=' + $_GET('t') + '"]').attr('selected', 'true');
+		$('#phoneadmindiv').removeClass('pk-hide');
+		$('#head,#body,#foot').remove();
+		$('#phonehead').attr('id', 'head');
+		$('#phonebody').attr('id', 'body');
+		$('#phonecontent').attr('id', 'content');
+		$('#phonefoot').attr('id', 'foot');
+		//防止加载失败，再次调用
+		$selects = $('select');
+		for($i = 0; $i < $selects.length; $i++) {
+			$('select[name="' + $($selects[$i]).attr('name') + '"] option[value="' + $($selects[$i]).data('value') + '"]').prop('selected', true);
+		}
+	}
+
+	//以下为升级和下载js
+	var $updatetemplate = '<div class="pk-row pk-radius-4 pk-overflow-hidden" style="border:solid 1px #ddd"><div class="pk-padding-15 pk-padding-top-5 pk-padding-bottom-5" style="background-color: #ddd;">系统更新</div><div class="pk-w-sm-12 pk-padding-15 pk-text-sm">TEXTCODE</div></div></div>';
+
+	function chkupdate() {
+		var $r = '';
+		$.get("index.php?c=app&a=superadmin:index&s=api&url=" + encodeURIComponent("http://www.hadsky.com/index.php?c=app&a=zhanzhang:index3&s=chkupdate&nowversion={$nowversion}"), function(r, s, x) {
+			if(s == 'success') {
+				try {
+					var $jsondata = eval('(' + r + ')');
+					if($jsondata['status'] == 'ok') {
+						if($jsondata['content']) {
+							$content = $jsondata['content'];
+						} else {
+							$content = '暂无说明';
+						}
+						$r = '可升级至：' + $jsondata['version'] + '<br>更新大小：' + ($jsondata['filesize'] / 1024) + ' KB<br>更新说明：' + $content + '<br><br><button id="updatebtn" class="pk-btn pk-btn-primary pk-radius-4" onclick="pkalert(\'确定升级至最新版？<br>为以防万一请做好数据的备份\',\'警告\',\'update()\')">升级至最新版</button>';
+					} else {
+						$r = '恭喜当前版本已是最新版';
+					}
+				} catch(e) {
+					$r = '数据异常，请稍后再试';
+				}
+			} else {
+				$r = '与官方通讯失败';
+			}
+			$('#content').html($updatetemplate.replace('TEXTCODE', $r));
+		});
+	}
+
+	function update() {
+		var $r = '';
+		$('#updatebtn').prop('disabled', true).html('<span class="fa fa-spin fa-spinner"></span> 正在升级，请勿刷新或关闭本页...');
+		$.get("index.php?c=app&a=superadmin:index&s=update&do=update&rnd={$_G['RND']}", function(r, s, x) {
+			if(s == 'success') {
+				$r = r;
+				$('.pk-nav-vertical.pk-nav-admin-left ul li[onclick="chkupdate()"] a').attr('onclick', '');
+				$('.pk-nav-vertical.pk-nav-admin-left ul li[onclick="chkupdate()"]').attr('onclick', '');
+			} else {
+				$r = '出错';
+			}
+			$('#content').html($updatetemplate.replace('TEXTCODE', $r));
+		});
+	}
+
+	function download() {
+		var $r = '';
+		$updatetemplate = $updatetemplate.replace('系统更新', '应用下载');
+		$('#content').html($updatetemplate.replace('TEXTCODE', '<span class="fa fa-spin fa-spinner"></span> 正在下载应用，请勿刷新或关闭本页...'));
+		$.get("index.php?c=app&a=superadmin:index&s=appdownload&do=download&id={$_G['GET']['ID']}&rnd={$_G['RND']}", function(r, s, x) {
+			if(s == 'success') {
+				$r = r;
+			} else {
+				$r = '出错';
+			}
+			$('#content').html($updatetemplate.replace('TEXTCODE', $r));
+		});
+	}
+
+	if($_GET('s') == 'appdownload' && $_GET('id')) {
+		download();
+	}
+</script>

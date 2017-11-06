@@ -1,0 +1,9 @@
+﻿<?xml version="1.0"?>
+<app>
+	<name>云服务</name>
+	<version>v1.0.0.20170519</version>
+	<users>0</users>
+	<author>puyuetian</author>
+	<link>http://www.hadsky.com</link>
+	<description>HadSky官方云服务平台。</description>
+</app>
